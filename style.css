@@ -354,7 +354,17 @@ a { color: inherit; text-decoration: none; }
 }
 .portfolio-card:hover { transform: translateY(-3px); border-color: rgba(255, 255, 255, 0.18); }
 
-/* --- Card Media (image area) --- */
+/* --- Card Media (donut website image area) --- */
+.card-media {
+  height: clamp(200px, 25vw, 260px);
+  background: #14141a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+/* --- Card Media (milkshake website image area) --- */
 .card-media {
   height: clamp(200px, 25vw, 260px);
   background: #14141a;
@@ -365,7 +375,10 @@ a { color: inherit; text-decoration: none; }
   overflow: hidden;
 }
 
-/* --- Live image card (Card 1 only) --- */
+/* ----------------------------------------------------------------------------------------------------------------
+                                     Live image card (Donut website card)
+---------------------------------------------------------------------------------------------------------------- */
+
 .portfolio-img-cover {
   width: 100%;
   height: 100%;
@@ -646,38 +659,547 @@ select option { background-color: #0b0b0e; color: #ffffff; padding: 10px; }
 /* ==========================================================================
    12. RESPONSIVE BREAKPOINTS
    ========================================================================== */
-@media (max-width: 1024px) {
-  .footer-top { grid-template-columns: 1fr 1fr; }
+
+/* --------------------------------------------------------------------------
+   GLOBAL RESPONSIVE SAFETY
+   -------------------------------------------------------------------------- */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
 }
+
+html,
+body {
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+header,
+main,
+section,
+footer {
+  width: 100%;
+  max-width: 100%;
+}
+
+img,
+video,
+svg,
+canvas,
+iframe {
+  max-width: 100%;
+}
+
+/* Prevent flex/grid children from causing horizontal overflow */
+.nav-container,
+.hero-container,
+.about-container,
+.contact-container,
+.footer-container,
+.footer-top,
+.footer-bottom {
+  min-width: 0;
+}
+
+
+/* ==========================================================================
+   LARGE LAPTOPS / SMALL DESKTOPS
+   1025px - 1440px
+   ========================================================================== */
+
+@media (max-width: 1440px) {
+
+  .nav-container {
+    width: 100%;
+    max-width: 1200px;
+    margin-inline: auto;
+    padding-inline: 24px;
+  }
+
+}
+
+
+/* ==========================================================================
+   TABLETS / SMALL LAPTOPS
+   <= 1024px
+   ========================================================================== */
+
+@media (max-width: 1024px) {
+
+  .footer-top {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .nav-container {
+    width: 100%;
+    max-width: 100%;
+    padding-inline: 22px;
+  }
+
+}
+
+
+/* ==========================================================================
+   TABLETS + MOBILE NAVIGATION
+   <= 900px
+   ========================================================================== */
+
 @media (max-width: 900px) {
-  .about-container, .contact-container { grid-template-columns: 1fr; }
-  .process-grid { grid-template-columns: 1fr; gap: 28px; }
-  .timeline-line { display: none; }
-  .process-step { flex-direction: row; align-items: flex-start; gap: 20px; }
-  .step-badge-wrapper { margin-bottom: 0; flex-shrink: 0; }
-  .mobile-menu-toggle { display: flex; }
+
+  /* ---------------- Navbar ---------------- */
+
+  header {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .nav-container {
+    position: relative;
+
+    width: 100%;
+    max-width: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 10px;
+
+    padding-left: 18px;
+    padding-right: 18px;
+  }
+
+  /* Prevent logo from taking too much room */
+  .logo,
+  .navbar-logo,
+  .nav-logo {
+    flex-shrink: 1;
+    min-width: 0;
+    max-width: 190px;
+  }
+
+  .logo img,
+  .navbar-logo img,
+  .nav-logo img {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    object-fit: contain;
+  }
+
+  /* Right-side navbar buttons */
+  .nav-actions {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 8px;
+
+    flex-shrink: 0;
+    min-width: 0;
+  }
+
+  .mobile-menu-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    flex-shrink: 0;
+  }
+
+  /* Dropdown mobile navigation */
   .nav-links {
-    position: absolute; top: calc(100% + 12px); left: 0; right: 0;
+    position: absolute;
+
+    top: calc(100% + 12px);
+    left: 18px;
+    right: 18px;
+
+    width: auto;
+    max-width: calc(100vw - 36px);
+
     background: rgba(12, 12, 16, 0.96);
+
     -webkit-backdrop-filter: blur(20px);
     backdrop-filter: blur(20px);
+
     border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 20px; padding: 20px 24px;
-    flex-direction: column; align-items: flex-start; gap: 14px;
-    box-shadow: 0 16px 36px rgba(0, 0, 0, 0.6); display: none;
+    border-radius: 20px;
+
+    padding: 20px;
+
+    flex-direction: column;
+    align-items: flex-start;
+
+    gap: 14px;
+
+    box-shadow: 0 16px 36px rgba(0, 0, 0, 0.6);
+
+    display: none;
+
+    z-index: 9999;
   }
-  .nav-links.open { display: flex; }
-  .nav-links li { width: 100%; }
-  .nav-link { font-size: 15px; width: 100%; padding: 8px 0; border-bottom: 1px solid rgba(255, 255, 255, 0.04); }
+
+  .nav-links.open {
+    display: flex;
+  }
+
+  .nav-links li {
+    width: 100%;
+  }
+
+  .nav-link {
+    display: block;
+
+    width: 100%;
+
+    font-size: 15px;
+
+    padding: 9px 0;
+
+    border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+  }
+
+
+  /* ---------------- Sections ---------------- */
+
+  .about-container,
+  .contact-container {
+    grid-template-columns: 1fr;
+  }
+
+  .process-grid {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+
+  .timeline-line {
+    display: none;
+  }
+
+  .process-step {
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 20px;
+  }
+
+  .step-badge-wrapper {
+    margin-bottom: 0;
+    flex-shrink: 0;
+  }
+
 }
+
+
+/* ==========================================================================
+   MOBILE LANDSCAPE / SMALL TABLETS
+   <= 768px
+   ========================================================================== */
+
+@media (max-width: 768px) {
+
+  header {
+    width: 100%;
+  }
+
+  .nav-container {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .nav-links {
+    left: 16px;
+    right: 16px;
+    max-width: calc(100vw - 32px);
+  }
+
+  .hero-container,
+  .about-container,
+  .contact-container,
+  .portfolio-container,
+  .services-container,
+  .process-container {
+    width: 100%;
+    max-width: 100%;
+  }
+
+}
+
+
+/* ==========================================================================
+   MOBILE DEVICES
+   <= 680px
+   ========================================================================== */
+
 @media (max-width: 680px) {
-  .form-row { grid-template-columns: 1fr; }
-  .portfolio-grid { grid-template-columns: 1fr; }
-  .footer-top { grid-template-columns: 1fr; }
-  .footer-bottom { flex-direction: column; text-align: center; gap: 10px; }
-  .hero-cta { flex-direction: column; width: 100%; }
-  .btn-primary-pill, .btn-secondary-pill { width: 100%; }
-  .process-step { flex-direction: column; }
-  .btn-order-cta span { display: none; }
-  .btn-order-cta { padding: 8px 10px; border-radius: 50%; width: 36px; height: 36px; justify-content: center; }
+
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+
+  .portfolio-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .footer-top {
+    grid-template-columns: 1fr;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    text-align: center;
+    gap: 10px;
+  }
+
+  .hero-cta {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .btn-primary-pill,
+  .btn-secondary-pill {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .process-step {
+    flex-direction: column;
+  }
+
+  .btn-order-cta span {
+    display: none;
+  }
+
+  .btn-order-cta {
+    width: 38px;
+    height: 38px;
+
+    min-width: 38px;
+    min-height: 38px;
+
+    padding: 8px;
+
+    border-radius: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    flex-shrink: 0;
+  }
+
+}
+
+
+/* ==========================================================================
+   STANDARD PHONES
+   <= 480px
+   ========================================================================== */
+
+@media (max-width: 480px) {
+
+  body {
+    width: 100%;
+    min-width: 0;
+  }
+
+  header,
+  main,
+  footer {
+    width: 100%;
+    max-width: 100%;
+  }
+
+
+  /* ---------------- Navbar ---------------- */
+
+  .nav-container {
+    width: 100%;
+
+    padding-left: 12px;
+    padding-right: 12px;
+
+    gap: 7px;
+  }
+
+  .logo,
+  .navbar-logo,
+  .nav-logo {
+    max-width: 155px;
+    min-width: 0;
+  }
+
+  .nav-actions {
+    gap: 6px;
+  }
+
+  .nav-links {
+    left: 12px;
+    right: 12px;
+
+    width: auto;
+
+    max-width: calc(100vw - 24px);
+
+    padding: 18px;
+
+    border-radius: 16px;
+  }
+
+
+  /* ---------------- Hero ---------------- */
+
+  .hero-cta {
+    width: 100%;
+  }
+
+  .btn-primary-pill,
+  .btn-secondary-pill {
+    width: 100%;
+  }
+
+}
+
+
+/* ==========================================================================
+   SMALL PHONES
+   <= 400px
+   ========================================================================== */
+
+@media (max-width: 400px) {
+
+  .nav-container {
+    padding-left: 10px;
+    padding-right: 10px;
+
+    gap: 5px;
+  }
+
+  .logo,
+  .navbar-logo,
+  .nav-logo {
+    max-width: 140px;
+  }
+
+  .nav-actions {
+    gap: 5px;
+  }
+
+  .nav-links {
+    left: 10px;
+    right: 10px;
+
+    max-width: calc(100vw - 20px);
+  }
+
+}
+
+
+/* ==========================================================================
+   VERY SMALL PHONES
+   <= 360px
+   ========================================================================== */
+
+@media (max-width: 360px) {
+
+  .nav-container {
+    padding-left: 8px;
+    padding-right: 8px;
+  }
+
+  .logo,
+  .navbar-logo,
+  .nav-logo {
+    max-width: 125px;
+  }
+
+  .nav-actions {
+    gap: 4px;
+  }
+
+  .btn-order-cta {
+    width: 34px;
+    height: 34px;
+
+    min-width: 34px;
+    min-height: 34px;
+
+    padding: 6px;
+  }
+
+  .mobile-menu-toggle {
+    width: 34px;
+    height: 34px;
+
+    min-width: 34px;
+    min-height: 34px;
+  }
+
+  .nav-links {
+    left: 8px;
+    right: 8px;
+
+    max-width: calc(100vw - 16px);
+  }
+
+}
+
+
+/* ==========================================================================
+   EXTREMELY NARROW SCREENS
+   <= 320px
+   ========================================================================== */
+
+@media (max-width: 320px) {
+
+  .nav-container {
+    padding-inline: 6px;
+    gap: 3px;
+  }
+
+  .logo,
+  .navbar-logo,
+  .nav-logo {
+    max-width: 110px;
+  }
+
+  .nav-actions {
+    gap: 3px;
+  }
+
+  .nav-links {
+    left: 6px;
+    right: 6px;
+
+    max-width: calc(100vw - 12px);
+  }
+
+}
+
+
+/* ==========================================================================
+   LARGE / ULTRAWIDE SCREENS
+   ========================================================================== */
+
+@media (min-width: 1441px) {
+
+  .nav-container,
+  .hero-container,
+  .about-container,
+  .contact-container,
+  .portfolio-container,
+  .services-container,
+  .process-container,
+  .footer-container {
+    width: 100%;
+    max-width: 1400px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
 }
