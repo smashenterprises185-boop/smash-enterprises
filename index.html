@@ -1,0 +1,898 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SMASH Enterprises | Full-Stack Web Development</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Ambient Glow Backgrounds -->
+  <div class="ambient-glow glow-cyan"></div>
+  <div class="ambient-glow glow-purple"></div>
+
+  <!-- Floating Header / Navbar -->
+  <header class="navbar-wrapper">
+    <nav class="navbar">
+      <a href="#home" class="brand">
+        <div class="brand-logo-frame">
+          <img src="logo.png" alt="SMASH Enterprises Logo" class="brand-logo-img" />
+        </div>
+        <div class="brand-info">
+          <span class="brand-title">SMASH</span>
+          <span class="brand-sub">ENTERPRISES</span>
+        </div>
+      </a>
+
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#home" class="nav-link active">Home</a></li>
+        <li><a href="#about" class="nav-link">About</a></li>
+        <li><a href="#services" class="nav-link">Services</a></li>
+        <li><a href="#how-it-works" class="nav-link">How It Works</a></li>
+        <li><a href="#portfolio" class="nav-link">Portfolio</a></li>
+        <li><a href="#contact" class="nav-link">Contact</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <!-- <button class="theme-toggle" id="themeToggle" aria-label="Toggle Theme">
+          <svg class="theme-icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="4"/>
+            <path d="M12 2v2"/><path d="M12 20v2"/>
+            <path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/>
+            <path d="M2 12h2"/><path d="M20 12h2"/>
+            <path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/>
+          </svg>
+        </button> -->
+
+        <a href="#order" class="btn-order-cta">
+          <svg class="order-icon" xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/>
+            <path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/>
+          </svg>
+          <span>PLACE ORDER</span>
+        </a>
+
+        <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle Menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section id="home" class="hero-section">
+    <div class="badge">
+      <span class="badge-dot"></span>
+      <span>High-Performance Full Stack Services</span>
+    </div>
+    <h1 class="hero-title">
+      Build Websites That <br />
+      <span class="text-gold">Grow Your Business</span>
+    </h1>
+    <p class="hero-description">
+      SMASH Enterprises engineers bespoke, lightning-fast, secure full-stack websites.
+      We deliver high-performing websites.
+    </p>
+    <div class="hero-cta">
+      <a href="#order" class="btn-primary-pill">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect width="8" height="4" x="8" y="2" rx="1" ry="1"/>
+          <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/>
+          <path d="m9 14 2 2 4-4"/>
+        </svg>
+        <span>START YOUR PROJECT</span>
+      </a>
+      <a href="#portfolio" class="btn-secondary-pill">
+        <span>VIEW PORTFOLIO &rarr;</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="section">
+    <div class="text-left mb-lg">
+      <span class="section-tag">ABOUT THE AGENCY</span>
+      <h2 class="section-title">About SMASH Enterprises</h2>
+    </div>
+    <div class="about-container">
+      <div class="about-card">
+        <h2 class="about-card-title">SMASH</h2>
+        <p class="about-card-sub">SMASH ENTERPRISES • GLOBALLY AGILE</p>
+        <div class="card-stats">
+          <div class="stat-row">
+            <span>Average Reply</span>
+            <span class="stat-value highlight-green">&lt; 24 Hour</span>
+          </div>
+          <div class="stat-row">
+            <span>Success Delivery</span>
+            <span class="stat-value highlight-gold">100% Guaranteed</span>
+          </div>
+        </div>
+      </div>
+      <div class="about-content">
+        <p>At SMASH Enterprises, the goal is simple: build websites that don't just look impressive, they perform exceptionally well.</p>
+        <p>Every project is approached with attention to detail, clean code and a strong focus on user experience. Whether it's a modern business website, a custom website, or a complete full-stack solution, every website is built to be fast, responsive, secure, and easy to use across all devices.</p>
+        <p>Instead of working with multiple developers for different parts of a project, clients can rely on one dedicated development team to handle everything from frontend design and backend development, deployment and ongoing support. This creates a smoother development process, better communication, and consistent quality from start to finish.</p>
+        <p>Every business has unique goals, which is why no two websites are built the same. Each project is carefully planned to match the client's vision, brand identity and business requirements while maintaining modern design standards and high performance.</p>
+        <p>At SMASH Enterprises, the commitment goes beyond delivering a website. The focus is on building long-term relationships through honesty, reliability, transparent communication and solutions that provide real value. Every project is treated with the same level of dedication, whether it's a simple landing page or a large-scale full-stack website.</p>
+        <p>If you're looking for a professional website that combines modern design, powerful functionality, fast performance and a seamless user experience, SMASH Enterprises is ready to turn your ideas into reality.</p>
+        <div class="notice-badge">
+          <span class="green-dot"></span>
+          <span>We typically review inquiries and orders within 24 hours.</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Section -->
+  <section id="services" class="section">
+    <div class="text-center">
+      <span class="section-tag">AGENCY CAPABILITIES</span>
+      <h2 class="section-title">Core Solutions We Deliver</h2>
+      <p class="section-subtext">PREMIUM ANIMATED CUSTOM ARCHITECTURES</p>
+    </div>
+    <div class="grid grid-3 gap-lg mt-xl">
+      <!-- Card 1: Full Stack -->
+      <div class="service-card">
+        <div class="icon-box">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect width="18" height="18" x="3" y="3" rx="2"/><path d="M3 9h18"/><path d="M9 21V9"/>
+          </svg>
+        </div>
+        <h3>Full Stack Website Development</h3>
+        <p>Complete end-to-end architectures. Seamless integration of stunning frontends and heavy-duty backends designed for high performance.</p>
+        <ul class="feature-list">
+          <li><span class="check-icon">✔</span> Modern HTML5 & CSS3</li>
+          <li><span class="check-icon">✔</span>Interactive JS Functionality</li>
+          <li><span class="check-icon">✔</span> End-to-End Site Setup</li>
+        </ul>
+      </div>
+      <!-- Card 2: Frontend -->
+      <div class="service-card">
+        <div class="icon-box">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect width="20" height="14" x="2" y="3" rx="2"/><line x1="8" x2="16" y1="21" y2="21"/><line x1="12" x2="12" y1="17" y2="21"/>
+          </svg>
+        </div>
+        <h3>Frontend Development</h3>
+        <p>Ultra-fast, responsive web interfaces built with HTML, CSS and JavaScript. Pixel-perfect translation of designs with elegant animations.</p>
+        <ul class="feature-list">
+          <li><span class="check-icon">✔</span> Clean Semantic HTML </li>
+          <li><span class="check-icon">✔</span> Responsive CSS Layouts</li>
+          <li><span class="check-icon">✔</span> Vanilla JS Animations </li>
+        </ul>
+      </div>
+      <!-- Card 3: Backend -->
+      <div class="service-card">
+        <div class="icon-box">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect width="20" height="8" x="2" y="2" rx="2" ry="2"/><rect width="20" height="8" x="2" y="14" rx="2" ry="2"/>
+            <line x1="6" x2="6.01" y1="6" y2="6"/><line x1="6" x2="6.01" y1="18" y2="18"/>
+          </svg>
+        </div>
+        <h3>Backend Development</h3>
+        <p>Robust server infrastructures. Designed for durability and fast response times.</p>
+        <ul class="feature-list">
+          <li><span class="check-icon">✔</span> Node.js & Local Storage </li>
+          <li><span class="check-icon">✔</span>Fast Loading Speeds</li>
+          <li><span class="check-icon">✔</span> Hosting & Deployment  </li>
+        </ul>
+      </div>
+      <!-- Card 4: Business -->
+      <div class="service-card">
+        <div class="icon-box">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"/><line x1="2" x2="22" y1="12" y2="12"/>
+            <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+          </svg>
+        </div>
+        <h3>Business Websites</h3>
+        <p>High-conversion profile sites engineered to market your brand, products, or corporate services. Solidify your corporate presence.</p>
+        <ul class="feature-list">
+          <li><span class="check-icon">✔</span> High-Converting Layouts </li>
+          <li><span class="check-icon">✔</span> SEO Tags Optimizations</li>
+          <li><span class="check-icon">✔</span> Contact & Inquiry Forms </li>
+        </ul>
+      </div>
+      <!-- Card 5: Landing Pages -->
+      <div class="service-card">
+        <div class="icon-box">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/>
+          </svg>
+        </div>
+        <h3>Landing Pages</h3>
+        <p>High-impact single-page layouts engineered to capture leads and drive actions. Optimized for fast loading speeds and seamless user navigation across all devices.</p>
+        <ul class="feature-list">
+          <li><span class="check-icon">✔</span> Hero Section Optimization</li>
+          <li><span class="check-icon">✔</span> Clear Call-to-Action (CTA) </li>
+          <li><span class="check-icon">✔</span> Fast Load Performance </li>
+        </ul>
+      </div>
+      <!-- Card 6: Portfolio (Featured) -->
+      <div class="service-card">
+        <div class="icon-box">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/>
+          </svg>
+        </div>
+        <h3>Portfolio Websites</h3>
+        <p>Bespoke design-centric hubs for creative designers, architects, photographers and independent professionals.</p>
+        <ul class="feature-list">
+          <li><span class="check-icon">✔</span> Editorial Typographies</li>
+          <li><span class="check-icon">✔</span> Fluid Gallery Grids</li>
+          <li><span class="check-icon">✔</span> Smooth Page Scrolling</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- How It Works Section -->
+  <section id="how-it-works" class="section">
+    <div class="text-center mb-lg">
+      <span class="section-tag">WORK PROCESS</span>
+      <h2 class="section-title">How It Works</h2>
+      <p class="section-subtext">OUR FRICTIONLESS 3-STEP TIMELINE</p>
+    </div>
+    <div class="process-timeline-container">
+      <div class="timeline-line"></div>
+      <div class="process-grid">
+        <div class="process-step">
+          <div class="step-badge-wrapper">
+            <div class="step-badge">01</div>
+            <div class="step-corner-icon icon-orange">✔</div>
+          </div>
+          <h3 class="step-title">Send Project Details</h3>
+          <p class="step-desc">Fill our project blueprints form or trigger a Fiverr order with your specifications, layouts, colors, references, or documents.</p>
+        </div>
+        <div class="process-step">
+          <div class="step-badge-wrapper">
+            <div class="step-badge">02</div>
+            <div class="step-corner-icon icon-gold">⚙️</div>
+          </div>
+          <h3 class="step-title">I Build Your Website</h3>
+          <p class="step-desc">Your code is developed iteratively with live staging URL links. You inspect the architecture progress and provide revisions in real time.</p>
+        </div>
+        <div class="process-step">
+          <div class="step-badge-wrapper">
+            <div class="step-badge">03</div>
+            <div class="step-corner-icon icon-green">★</div>
+          </div>
+          <h3 class="step-title">Launch &amp; Grow</h3>
+          <p class="step-desc">Once approved, the code undergoes speed optimization and is deployed onto Vercel or Render. We connect your custom domain and submit sitemaps to Google.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Portfolio Section -->
+  <section id="portfolio" class="section">
+    <div class="text-left mb-lg">
+      <span class="section-tag">OUR ARTIFACTS</span>
+      <h2 class="section-title">Featured Engagements</h2>
+    </div>
+
+    <div class="portfolio-grid mt-xl">
+
+      <!-- Item 1: Donuts — FULL STACK (Live) -->
+      <div class="portfolio-card" data-category="fullstack">
+        <div class="card-media">
+          <img src="donut web.jpg" alt="Donuts Handcrafted Artisan Shop" class="portfolio-img-cover" />
+          <a href="https://donut-shop-sigma.vercel.app/" target="_blank" rel="noopener noreferrer" class="overlay-btn">
+            LIVE DEMO ↗
+          </a>
+        </div>
+        <div class="card-content">
+          <div class="card-meta">
+            <span class="tag-badge fullstack">FULL STACK</span>
+            <a href="https://donut-shop-sigma.vercel.app/" target="_blank" rel="noopener noreferrer" class="meta-right meta-link">
+              donut-shop-sigma.vercel.app ↗
+            </a>
+          </div>
+          <h3><a href="https://donut-shop-sigma.vercel.app/" target="_blank" rel="noopener noreferrer" class="card-title-link">Donuts | Handcrafted Artisan Shop</a></h3>
+          <p>An interactive, multi-themed e-commerce website featuring dynamic theme switching, fluid animations, cart drawer overlays, and checkout workflows.</p>
+          <div class="tech-tags">
+            <span>HTML5</span>
+            <span>JavaScript</span>
+            <span>CSS3 Animation</span>
+            <span>Vercel Deploy</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Item 2: Milkshake — FRONTEND (Live) -->
+      <div class="portfolio-card" data-category="fullstack">
+        <div class="card-media">
+          <img src="milkshake web.jpg" alt="Milkshake Handcrafted Artisan Shop" class="portfolio-img-cover" />
+          <a href="https://whisk-wave.vercel.app/" target="_blank" rel="noopener noreferrer" class="overlay-btn">
+            LIVE DEMO ↗
+          </a>
+        </div>
+        <div class="card-content">
+          <div class="card-meta">
+            <span class="tag-badge fullstack">Frontend</span>
+            <a href="https://whisk-wave.vercel.app/" target="_blank" rel="noopener noreferrer" class="meta-right meta-link">
+              whisk-wave.vercel.app ↗
+            </a>
+          </div>
+          <h3><a href="https://whisk-wave.vercel.app/" target="_blank" rel="noopener noreferrer" class="card-title-link">Whisk & Wave | Handspun Milkshake Shop</a></h3>
+          <p>A bold website for Whisk & Wave, showcasing its signature milkshakes, brand story and social presence in a clean, engaging experience.</p>
+          <div class="tech-tags">
+            <span>HTML5</span>
+            <span>JavaScript</span>
+            <span>CSS3 Animation</span>
+            <span>Vercel Deploy</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Item 3: BACKEND -->
+      <div class="portfolio-card" data-category="backend">
+        <div class="card-media coming-soon-media cs-green">
+          <button class="overlay-btn coming-soon-btn">COMING SOON ⏳</button>
+        </div>
+        <div class="card-content">
+          <div class="card-meta">
+            <span class="tag-badge backend">BACKEND</span>
+            <span class="meta-right">Responsive</span>
+          </div>
+          <h3>COMING SOON</h3>
+          <p>A high-performance backend system will be live soon!</p>
+          <div class="tech-tags">
+            <span>Coming Soon</span>
+            <span>Coming Soon</span>
+            <span>Coming Soon</span>
+            <span>+1</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Item 4: Nike-Shoes — Business Website (Live) -->
+      <div class="portfolio-card" data-category="fullstack">
+        <div class="card-media">
+          <img src="nike-shoes.jpg" alt="Donuts Handcrafted Artisan Shop" class="portfolio-img-cover" />
+          <a href="https://nike-shoes-black.vercel.app/" target="_blank" rel="noopener noreferrer" class="overlay-btn">
+            LIVE DEMO ↗
+          </a>
+        </div>
+        <div class="card-content">
+          <div class="card-meta">
+            <span class="tag-badge fullstack">BUSINESS WEBSITE</span>
+            <a href="https://nike-shoes-black.vercel.app/" target="_blank" rel="noopener noreferrer" class="meta-right meta-link">
+              nike-shoes-black.vercel.app ↗
+            </a>
+          </div>
+          <h3><a href="https://nike-shoes-black.vercel.app/" target="_blank" rel="noopener noreferrer" class="card-title-link">Nike Shoes | Business Website</a></h3>
+          <p>An interactive, multi-themed e-commerce website featuring dynamic theme switching, fluid animations, cart drawer and overlays.</p>
+          <div class="tech-tags">
+            <span>HTML5</span>
+            <span>JavaScript</span>
+            <span>CSS3 Animation</span>
+            <span>Vercel Deploy</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Item 5: LANDING PAGE -->
+      <div class="portfolio-card" data-category="landing">
+        <div class="card-media coming-soon-media cs-gold">
+          <button class="overlay-btn coming-soon-btn">COMING SOON ⏳</button>
+        </div>
+        <div class="card-content">
+          <div class="card-meta">
+            <span class="tag-badge landing">LANDING PAGE</span>
+            <span class="meta-right">Responsive</span>
+          </div>
+          <h3>COMING SOON</h3>
+          <p>An ultra-bold, high-contrast and creative landing page will be live soon!</p>
+          <div class="tech-tags">
+            <span>Coming Soon</span>
+            <span>Coming Soon</span>
+            <span>Coming Soon</span>
+            <span>+1</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Item 6: PORTFOLIO -->
+      <div class="portfolio-card" data-category="portfolio">
+        <div class="card-media coming-soon-media cs-rose">
+          <button class="overlay-btn coming-soon-btn">COMING SOON ⏳</button>
+        </div>
+        <div class="card-content">
+          <div class="card-meta">
+            <span class="tag-badge portfolio">PORTFOLIO</span>
+            <span class="meta-right">Responsive</span>
+          </div>
+          <h3>COMING SOON</h3>
+          <p>An elegant editorial design concept featuring high-contrast layout is coming soon!</p>
+          <div class="tech-tags">
+            <span>Coming Soon</span>
+            <span>Coming Soon</span>
+            <span>Coming Soon</span>
+            <span>+1</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Place Order Section -->
+  <section id="order" class="section">
+    <div class="text-center">
+      <span class="section-tag">INITIATE ENGAGEMENT</span>
+      <h2 class="section-title">Place An Order Here</h2>
+      <p class="section-subtext">SELECT YOUR PREFERRED DISPATCHER CHANNEL</p>
+    </div>
+
+    <!-- <div class="dispatcher-toggle-container mt-md">
+      <button class="dispatch-btn active" id="btnOption1">🚀 ORDER ON EMAIL</button>
+      <button class="dispatch-btn fiverr-btn" id="btnOption2">🟢 ORDER ON FIVERR</button>
+    </div> -->
+
+    <div id="blueprintPanel" class="order-card-wrapper mt-lg">
+      <div class="blueprint-instruction-box">
+        <div class="instruction-header">
+          <span class="warning-icon">⚠️</span>
+          <strong>INSTRUCTIONS</strong>
+        </div>
+        <p>
+          Please include specifications like: <strong>number of pages</strong>, <strong>required sections</strong>,
+          <strong>color theme elements</strong>, <strong>brand logos files</strong>,<strong>features needed</strong>, or any <strong>reference websites</strong> inside the Project Description field below.
+        </p>
+      </div>
+
+      <form id="orderBlueprintForm" class="order-form mt-md">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="fullName">FULL NAME</label>
+            <input id="fullName" name="fullName" type="text" placeholder="Sarah Jenkins" required />
+          </div>
+          <div class="form-group">
+            <label for="contactNumber">Reference Name</label>
+            <input id="contactNumber" name="contactNumber" type="text" placeholder="John Doe" required />
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="emailAddress">EMAIL ADDRESS</label>
+          <input id="emailAddress" name="emailAddress" type="email" placeholder="sarah@nexus.com" required />
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="projectCategory">PROJECT CATEGORY</label>
+            <select id="projectCategory" name="projectCategory" required title="Project category">
+              <option value="fullstack">Full Stack Website Development</option>
+              <option value="frontend">Frontend Development</option>
+              <option value="backend">Backend Development</option>
+              <option value="landing">Landing Page</option>
+              <option value="business">Business Website</option>
+              <option value="portfolio">Portfolio Website</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="targetTimeline">TARGET TIMELINE</label>
+            <select id="targetTimeline" name="targetTimeline" required title="Target timeline">
+              <option value="2-3-weeks">Urgent 5 Days</option>
+              <option value="1-2-weeks">1 week</option>
+              <option value="1-month">10-15 days</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="projectDescription">DETAILED PROJECT DESCRIPTION</label>
+          <textarea id="projectDescription" name="projectDescription" rows="4" placeholder="Please outline the main features you need, section requirements, styling preferences..."></textarea>
+        </div>
+
+        <div class="form-group">
+          <label for="brandAssets">BRAND / ASSETS / SOCIAL LINKS &amp; REFERENCE SITES (OPTIONAL)</label>
+          <textarea id="brandAssets" name="brandAssets" rows="3" placeholder="Paste reference links, colors preferences, logo guidelines..."></textarea>
+        </div>
+
+        <div class="form-group">
+          <label for="orderFiles">UPLOAD PROJECT FILES (OPTIONAL)</label>
+
+          <div class="custom-file-upload">
+            <input 
+              id="orderFiles" 
+              name="attachments" 
+              type="file" 
+              multiple 
+              accept="*/*" 
+              onchange="updateFileNames(this)" 
+            />
+            <label for="orderFiles" class="file-upload-btn">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                <polyline points="17 8 12 3 7 8"></polyline>
+                <line x1="12" y1="3" x2="12" y2="15"></line>
+              </svg>
+              Choose Files
+            </label>
+            <span id="file-chosen-text" class="file-chosen-text">No file chosen</span>
+          </div>
+
+          <small class="file-help">Select one or more asset files from this device.</small>
+        </div>
+
+        <!-- Inside your <form id="orderBlueprintForm" ...> -->
+<button type="submit" id="orderSubmitBtn" class="btn-primary btn-full mt-sm">PLACE ORDER 🛒</button>
+      </form>
+    </div>
+
+    <div id="fiverrPanel" class="order-card-wrapper mt-lg text-center hidden-panel">
+      <div class="fiverr-icon-badge"><span>fi</span></div>
+      <h3 class="fiverr-heading">Secure Escrow Ordering via Fiverr</h3>
+      <p class="fiverr-desc">Prefer structured milestone payouts with secure third-party escrow? Order our services directly through our certified Fiverr Freelancer account.</p>
+      <a href="https://fiverr.com" target="_blank" rel="noopener noreferrer" class="btn-fiverr-cta mt-md">ORDER ON FIVERR ↗</a>
+      <p class="dispatcher-endpoint mt-md">Dispatcher Endpoint: <code>smash_ent/buying_profile</code></p>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="section">
+    <div class="contact-container">
+      <div class="contact-info">
+        <span class="section-tag">DIRECT CONNECTION</span>
+        <h2 class="section-title">Let's Discuss <br />Your Website</h2>
+        <p class="contact-desc">Have unique requirements or just want to discuss initial layout proposals? File your query directly. We will analyze your specifications and respond within 24 hours.</p>
+        <div class="email-box">
+          <div class="email-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect width="20" height="16" x="2" y="4" rx="2"/>
+              <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+            </svg>
+          </div>
+          <div>
+            <span class="email-label">For Inquiry</span>
+            <a href="mailto:smashenterprises185@gmail.com" class="email-address">smashenterprises185@gmail.com</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="contact-form-card">
+        <h3 class="contact-card-title">File an Inquiry</h3>
+        <form id="inquiryForm">
+          <div class="form-row">
+            <div class="form-group">
+              <label>FULL NAME</label>
+              <input type="text" id="fullName" placeholder="e.g., Sarah Jenkins" required />
+            </div>
+            <div class="form-group">
+              <label>EMAIL ADDRESS</label>
+              <input type="email" id="email" placeholder="e.g., sarah@nexus.com" required />
+            </div>
+          </div>
+          <div class="form-group">
+            <label>SUBJECT</label>
+            <input type="text" id="subject" placeholder="e.g., Website Redesign inquiry" required />
+          </div>
+          <div class="form-group">
+            <label>DETAILED DESCRIPTION</label>
+            <textarea id="message" rows="5" placeholder="Describe your design specifications, features needed, or pages scope..." required></textarea>
+          </div>
+          <button type="submit" class="btn-inquiry-submit">
+            <span>SEND MESSAGE</span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="22" x2="11" y1="2" y2="13"/>
+              <polygon points="22 2 15 22 11 13 2 9 22 2"/>
+            </svg>
+          </button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="footer-top">
+      <div class="footer-col brand-col">
+        <div class="footer-logo brand">
+          <div class="brand-logo-frame footer-logo-frame">
+            <img src="logo.png" alt="SMASH Enterprises Logo" class="brand-logo-img" />
+          </div>
+          <div class="brand-info">
+            <span class="brand-title">SMASH</span>
+            <span class="brand-sub">ENTERPRISES</span>
+          </div>
+        </div>
+        <p class="footer-tagline">Building high-performance websites and visually stunning digital assets for companies globally. Managed with absolute transparency.</p>
+      </div>
+
+      <div class="footer-col">
+        <h4 class="footer-heading">QUICK DIRECTORY</h4>
+        <ul class="footer-links">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#how-it-works">How It Works</a></li>
+          <li><a href="#portfolio">Portfolio</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4 class="footer-heading">CORE SOLUTIONS</h4>
+        <ul class="footer-links">
+          <li><a href="#services">Frontend Development</a></li>
+          <li><a href="#services">Backend Development</a></li>
+          <li><a href="#services">Responsive Design Systems</a></li>
+          <li><a href="#services">Custom E-Commerce Sites</a></li>
+          <li><a href="#services">Landing Pages</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4 class="footer-heading">FOR INQUIRIES</h4>
+        <div class="footer-inquiry-box">
+          <span class="inquiry-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+              <polyline points="22,6 12,13 2,6"></polyline>
+            </svg>
+          </span>
+          <div>
+            <strong>Direct Inquiry</strong>
+            <a href="mailto:smashenterprises185@gmail.com" class="inquiry-email">smashenterprises185@gmail.com</a>
+          </div>
+        </div>
+        <a href="#home" class="btn-back-top mt-md">↑ BACK TO TOP</a>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>© 2026 <strong>SMASH Enterprises</strong>. All rights reserved.</p>
+      <p>Crafted with <span class="heart-icon">❤️</span> by SMASH Enterprises</p>
+      <p class="mono-text">Security: SSL Cryptographic Gateway</p>
+    </div>
+  </footer>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+
+  // --- 1. Modern SVG Theme Toggle (Dark / Light Mode) ---
+  const themeToggle = document.getElementById('themeToggle');
+  let isDark = true;
+
+  const sunIconSVG = `
+    <svg class="theme-icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="4"/>
+      <path d="M12 2v2"/>
+      <path d="M12 20v2"/>
+      <path d="m4.93 4.93 1.41 1.41"/>
+      <path d="m17.66 17.66 1.41 1.41"/>
+      <path d="M2 12h2"/>
+      <path d="M20 12h2"/>
+      <path d="m6.34 17.66-1.41 1.41"/>
+      <path d="m19.07 4.93-1.41 1.41"/>
+    </svg>
+  `;
+
+  const moonIconSVG = `
+    <svg class="theme-icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/>
+    </svg>
+  `;
+
+  if (themeToggle) {
+    themeToggle.addEventListener('click', () => {
+      isDark = !isDark;
+      if (!isDark) {
+        // Light Theme Variables
+        document.documentElement.style.setProperty('--bg-color', '#f8f9fa');
+        document.documentElement.style.setProperty('--card-bg', '#ffffff');
+        document.documentElement.style.setProperty('--card-border', '#e2e8f0');
+        document.documentElement.style.setProperty('--card-hover-border', '#d4a342');
+        document.documentElement.style.setProperty('--text-main', '#0f172a');
+        document.documentElement.style.setProperty('--text-muted', '#64748b');
+        themeToggle.innerHTML = moonIconSVG;
+        themeToggle.setAttribute('aria-label', 'Switch to Dark Mode');
+      } else {
+        // Dark Theme Variables
+        document.documentElement.style.setProperty('--bg-color', '#030304');
+        document.documentElement.style.setProperty('--card-bg', '#0b0b0e');
+        document.documentElement.style.setProperty('--card-border', 'rgba(255, 255, 255, 0.08)');
+        document.documentElement.style.setProperty('--card-hover-border', 'rgba(212, 163, 66, 0.4)');
+        document.documentElement.style.setProperty('--text-main', '#ffffff');
+        document.documentElement.style.setProperty('--text-muted', '#8b8b99');
+        themeToggle.innerHTML = sunIconSVG;
+        themeToggle.setAttribute('aria-label', 'Switch to Light Mode');
+      }
+    });
+  }
+
+
+  // --- 2. Active Navigation Link Switching on Scroll (Scrollspy) ---
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = document.querySelectorAll('.nav-link');
+
+  const onScroll = () => {
+    const scrollPos = window.scrollY + 160;
+
+    sections.forEach(section => {
+      const top = section.offsetTop;
+      const height = section.offsetHeight;
+      const id = section.getAttribute('id');
+
+      if (scrollPos >= top && scrollPos < top + height) {
+        navLinks.forEach(link => {
+          link.classList.remove('active');
+          if (link.getAttribute('href') === `#${id}`) {
+            link.classList.add('active');
+          }
+        });
+      }
+    });
+
+    // Highlight Contact when reaching the bottom of the page
+    if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight - 50) {
+      navLinks.forEach(link => link.classList.remove('active'));
+      const contactLink = document.querySelector('.nav-link[href="#contact"]');
+      if (contactLink) contactLink.classList.add('active');
+    }
+  };
+
+  window.addEventListener('scroll', onScroll);
+  onScroll();
+
+
+  // --- 3. Smooth Offset Scrolling for Nav Links ---
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+      const targetId = this.getAttribute('href');
+      if (targetId === '#') return;
+
+      const targetElement = document.querySelector(targetId);
+      if (targetElement) {
+        e.preventDefault();
+        const headerOffset = 90;
+        const elementPosition = targetElement.getBoundingClientRect().top;
+        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: 'smooth'
+        });
+      }
+    });
+  });
+
+
+  // --- 4. Mobile Menu Drawer Controller ---
+  const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+  const navLinksContainer = document.getElementById('navLinks');
+
+  if (mobileMenuToggle && navLinksContainer) {
+    mobileMenuToggle.addEventListener('click', () => {
+      navLinksContainer.classList.toggle('open');
+    });
+
+    // Close mobile drawer when any link is clicked
+    document.querySelectorAll('.nav-link').forEach(link => {
+      link.addEventListener('click', () => {
+        navLinksContainer.classList.remove('open');
+      });
+    });
+  }
+
+
+  // --- 5. Order Dispatcher Switching (Blueprint Form vs Fiverr) ---
+  const btnOption1 = document.getElementById('btnOption1');
+  const btnOption2 = document.getElementById('btnOption2');
+  const blueprintPanel = document.getElementById('blueprintPanel');
+  const fiverrPanel = document.getElementById('fiverrPanel');
+
+  if (btnOption1 && btnOption2 && blueprintPanel && fiverrPanel) {
+    btnOption1.addEventListener('click', () => {
+      btnOption1.classList.add('active');
+      btnOption2.classList.remove('active');
+      blueprintPanel.classList.remove('hidden-panel');
+      fiverrPanel.classList.add('hidden-panel');
+    });
+
+    btnOption2.addEventListener('click', () => {
+      btnOption2.classList.add('active');
+      btnOption1.classList.remove('active');
+      fiverrPanel.classList.remove('hidden-panel');
+      blueprintPanel.classList.add('hidden-panel');
+    });
+  }
+
+
+  // --- 6. Live API Form Submission Handlers ---
+  const API_BASE_URL = '/api';
+
+  // Inquiry Form
+  const inquiryForm = document.getElementById('inquiryForm');
+  if (inquiryForm) {
+    inquiryForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const submitBtn = inquiryForm.querySelector('button[type="submit"]');
+      const originalText = submitBtn.innerHTML;
+
+      const payload = {
+        fullName: document.getElementById('fullName').value,
+        email: document.getElementById('email').value,
+        subject: document.getElementById('subject').value,
+        message: document.getElementById('message').value,
+      };
+
+      try {
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = 'SENDING... ⏳';
+
+        const response = await fetch(`${API_BASE_URL}/inquiry`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload),
+        });
+
+        const data = await response.json();
+        if (response.ok) {
+          alert(`✅ Thank you ${payload.fullName}! Your inquiry has been delivered directly to our team. We will reply to ${payload.email} within 24 hours.`);
+          inquiryForm.reset();
+        } else {
+          alert(`❌ Error: ${data.error || 'Could not send message.'}`);
+        }
+      } catch (err) {
+        alert('❌ Could not connect to backend server. Make sure server.js is running (node server.js).');
+      } finally {
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = originalText;
+      }
+    });
+  }
+
+  // Order Blueprint Form
+  const orderForm = document.getElementById('orderBlueprintForm');
+  if (orderForm) {
+    orderForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const submitBtn = orderForm.querySelector('button[type="submit"]');
+      const originalText = submitBtn.innerHTML;
+
+      const formData = new FormData(orderForm);
+      const payload = Object.fromEntries(formData.entries());
+      const selectedFiles = document.getElementById('orderFiles').files;
+
+      if (selectedFiles.length > 10) {
+        alert('❌ Please select no more than 10 files.');
+        return;
+      }
+
+      try {
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = 'PLACING ORDER... ⏳';
+
+        const response = await fetch(`${API_BASE_URL}/order`, {
+          method: 'POST',
+          body: formData,
+        });
+
+        const data = await response.json();
+        if (response.ok) {
+          alert(`🛍️ Thank you ${payload.fullName}! Your project blueprint has been dispatched to SMASH Enterprises. We will contact you at ${payload.email} shortly.`);
+          orderForm.reset();
+        } else {
+          alert(`❌ Error: ${data.error || 'Could not submit order.'}`);
+        }
+      } catch (err) {
+        alert('❌ Could not connect to backend server. Make sure server.js is running (node server.js).');
+      } finally {
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = originalText;
+      }
+    });
+  }
+
+});
+</script>
+</body>
+</html>
