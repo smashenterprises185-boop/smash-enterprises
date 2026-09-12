@@ -1394,3 +1394,745 @@ iframe {
   }
 
 }
+/* ==========================================================================
+   CONTACT SECTION — COMPLETE RESPONSIVE SYSTEM
+   Optimized for desktop, laptop, tablet and mobile devices
+   ========================================================================== */
+
+
+/* --------------------------------------------------------------------------
+   GLOBAL CONTACT SAFETY
+   -------------------------------------------------------------------------- */
+
+.contact-container,
+.contact-info,
+.contact-form-card,
+#inquiryForm,
+.form-row,
+.form-group,
+#referenceDiv,
+#description {
+  min-width: 0;
+  max-width: 100%;
+}
+
+.contact-form-card {
+  width: 100%;
+  overflow: hidden;
+}
+
+#inquiryForm {
+  width: 100%;
+}
+
+#inquiryForm input,
+#inquiryForm textarea,
+#inquiryForm select {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+}
+
+#inquiryForm textarea {
+  resize: vertical;
+  overflow-wrap: anywhere;
+}
+
+.email-box {
+  max-width: 100%;
+  min-width: 0;
+}
+
+.email-address {
+  max-width: 100%;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+
+/* ==========================================================================
+   LARGE DESKTOP — 1201px+
+   ========================================================================== */
+
+@media (min-width: 1201px) {
+
+  .contact-container {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.3fr);
+    gap: clamp(32px, 4vw, 56px);
+  }
+
+  .contact-form-card {
+    padding: clamp(28px, 3vw, 36px);
+  }
+
+  /* Three fields fit naturally on large screens */
+  #inquiryForm .form-row {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 16px;
+  }
+
+  /* Remove old desktop offset */
+  #referenceDiv {
+    margin-left: 0;
+    margin-top: 0;
+    margin-bottom: 30px;
+  }
+
+}
+
+
+/* ==========================================================================
+   LAPTOP — 1025px to 1200px
+   ========================================================================== */
+
+@media (min-width: 1025px) and (max-width: 1200px) {
+
+  .contact-container {
+    grid-template-columns: minmax(280px, 0.9fr) minmax(0, 1.2fr);
+    gap: clamp(24px, 3vw, 40px);
+  }
+
+  .contact-form-card {
+    padding: 28px;
+  }
+
+  #inquiryForm .form-row {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 12px;
+  }
+
+  #referenceDiv {
+    margin-left: 0;
+    margin-top: 0;
+    margin-bottom: 24px;
+  }
+
+  .contact-desc {
+    max-width: 100%;
+  }
+
+}
+
+
+/* ==========================================================================
+   TABLET / SMALL LAPTOP — 769px to 1024px
+   ========================================================================== */
+
+@media (min-width: 769px) and (max-width: 1024px) {
+
+  .contact-container {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr);
+    gap: clamp(22px, 4vw, 36px);
+    align-items: start;
+  }
+
+  .contact-info {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .contact-desc {
+    max-width: 100%;
+  }
+
+  .contact-form-card {
+    width: 100%;
+    max-width: 100%;
+    padding: clamp(22px, 3vw, 30px);
+  }
+
+  /*
+     Two columns on tablets.
+
+     First row:
+     FIRST NAME | LAST NAME
+
+     EMAIL goes naturally onto the next row.
+  */
+  #inquiryForm .form-row {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+    width: 100%;
+  }
+
+  /*
+     IMPORTANT:
+     Remove the old 295px / -80px positioning.
+  */
+  #referenceDiv {
+    margin-left: 0;
+    margin-top: 0;
+    margin-bottom: 22px;
+    padding: 0;
+  }
+
+  #description {
+    width: 100%;
+    margin-top: 0;
+  }
+
+  #inquiryForm input,
+  #inquiryForm textarea,
+  #inquiryForm select {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .email-box {
+    width: 100%;
+  }
+
+}
+
+
+/* ==========================================================================
+   MOBILE — 601px to 768px
+   ========================================================================== */
+
+@media (min-width: 601px) and (max-width: 768px) {
+
+  /*
+     Stack contact information and form.
+  */
+  .contact-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 32px;
+    width: 100%;
+  }
+
+  .contact-info {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .contact-desc {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  /*
+     Give the section enough clearance below the fixed navbar.
+  */
+  #contact {
+    padding-top: 120px;
+    scroll-margin-top: 120px;
+  }
+
+  .contact-form-card {
+    width: 100%;
+    max-width: 100%;
+    padding: 24px;
+    border-radius: 18px;
+  }
+
+  /*
+     IMPORTANT:
+     Every form field becomes one full-width row.
+  */
+  #inquiryForm .form-row {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px;
+    width: 100%;
+  }
+
+  .form-group {
+    width: 100%;
+    max-width: 100%;
+    margin-bottom: 16px;
+  }
+
+  /*
+     Completely cancel the old hard-coded positioning.
+  */
+  #referenceDiv {
+    width: 100%;
+    margin-left: 0;
+    margin-top: 0;
+    margin-bottom: 16px;
+    padding: 0;
+  }
+
+  #description {
+    width: 100%;
+    margin-top: 0;
+  }
+
+  #inquiryForm input,
+  #inquiryForm textarea,
+  #inquiryForm select {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+  }
+
+  #inquiryForm textarea {
+    min-height: 130px;
+  }
+
+  .btn-inquiry-submit {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .email-box {
+    width: 100%;
+    max-width: 100%;
+  }
+
+}
+
+
+/* ==========================================================================
+   STANDARD MOBILE — 481px to 600px
+   ========================================================================== */
+
+@media (min-width: 481px) and (max-width: 600px) {
+
+  #contact {
+    padding-top: 115px;
+    scroll-margin-top: 115px;
+  }
+
+  .contact-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 28px;
+    width: 100%;
+  }
+
+  .contact-info {
+    width: 100%;
+  }
+
+  .contact-form-card {
+    width: 100%;
+    max-width: 100%;
+    padding: 22px;
+    border-radius: 18px;
+  }
+
+  #inquiryForm .form-row {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 14px;
+    width: 100%;
+  }
+
+  .form-group {
+    width: 100%;
+    margin-bottom: 14px;
+  }
+
+  /*
+     Cancel desktop positioning.
+  */
+  #referenceDiv {
+    width: 100%;
+    margin-left: 0;
+    margin-top: 0;
+    margin-bottom: 14px;
+    padding: 0;
+  }
+
+  #description {
+    width: 100%;
+    margin-top: 0;
+  }
+
+  #inquiryForm input,
+  #inquiryForm textarea,
+  #inquiryForm select {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+  }
+
+  #inquiryForm textarea {
+    min-height: 125px;
+  }
+
+  .btn-inquiry-submit {
+    width: 100%;
+    min-height: 48px;
+  }
+
+  .email-box {
+    width: 100%;
+    padding: 13px 15px;
+    gap: 12px;
+  }
+
+  .email-address {
+    font-size: 12px;
+    overflow-wrap: anywhere;
+    word-break: break-word;
+  }
+
+}
+
+
+/* ==========================================================================
+   SMALL MOBILE — 376px to 480px
+   ========================================================================== */
+
+@media (min-width: 376px) and (max-width: 480px) {
+
+  #contact {
+    padding-top: 110px;
+    scroll-margin-top: 110px;
+  }
+
+  .contact-container {
+    grid-template-columns: 1fr;
+    gap: 24px;
+    width: 100%;
+  }
+
+  .contact-form-card {
+    width: 100%;
+    padding: 18px;
+    border-radius: 16px;
+  }
+
+  .contact-card-title {
+    font-size: 1.2rem;
+    margin-bottom: 18px;
+  }
+
+  #inquiryForm .form-row {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .form-group {
+    width: 100%;
+    margin-bottom: 12px;
+  }
+
+  #referenceDiv {
+    width: 100%;
+    margin-left: 0;
+    margin-top: 0;
+    margin-bottom: 12px;
+    padding: 0;
+  }
+
+  #description {
+    width: 100%;
+    margin-top: 0;
+  }
+
+  #inquiryForm input,
+  #inquiryForm textarea,
+  #inquiryForm select {
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
+  }
+
+  #inquiryForm textarea {
+    min-height: 120px;
+  }
+
+  .btn-inquiry-submit {
+    width: 100%;
+    min-height: 48px;
+    padding: 13px 12px;
+  }
+
+  .email-box {
+    width: 100%;
+    max-width: 100%;
+    padding: 12px;
+    gap: 10px;
+  }
+
+  .email-icon {
+    width: 34px;
+    height: 34px;
+    flex-shrink: 0;
+  }
+
+  .email-address {
+    font-size: 11.5px;
+    line-height: 1.5;
+    overflow-wrap: anywhere;
+    word-break: break-word;
+  }
+
+}
+
+
+/* ==========================================================================
+   EXTRA SMALL MOBILE — 320px to 375px
+   ========================================================================== */
+
+@media (min-width: 320px) and (max-width: 375px) {
+
+  #contact {
+    padding-top: 105px;
+    scroll-margin-top: 105px;
+  }
+
+  .contact-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 22px;
+    width: 100%;
+  }
+
+  .contact-form-card {
+    width: 100%;
+    padding: 15px;
+    border-radius: 15px;
+  }
+
+  .contact-card-title {
+    font-size: 1.1rem;
+    margin-bottom: 16px;
+  }
+
+  #inquiryForm .form-row {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px;
+    width: 100%;
+  }
+
+  .form-group {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+
+  #referenceDiv {
+    width: 100%;
+    margin: 0 0 10px 0;
+    padding: 0;
+  }
+
+  #description {
+    width: 100%;
+    margin: 0;
+  }
+
+  #inquiryForm input,
+  #inquiryForm textarea,
+  #inquiryForm select {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+  }
+
+  #inquiryForm textarea {
+    min-height: 115px;
+  }
+
+  .btn-inquiry-submit {
+    width: 100%;
+    min-height: 46px;
+    padding: 12px 8px;
+    font-size: 12px;
+    gap: 7px;
+  }
+
+  .email-box {
+    width: 100%;
+    padding: 10px;
+    gap: 9px;
+  }
+
+  .email-icon {
+    width: 32px;
+    height: 32px;
+  }
+
+  .email-address {
+    font-size: 10.5px;
+    line-height: 1.45;
+    overflow-wrap: anywhere;
+    word-break: break-word;
+  }
+
+}
+
+
+/* ==========================================================================
+   VERY SMALL DEVICES — BELOW 320px
+   ========================================================================== */
+
+@media (max-width: 319px) {
+
+  #contact {
+    padding-top: 100px;
+    scroll-margin-top: 100px;
+  }
+
+  .contact-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 18px;
+    width: 100%;
+  }
+
+  .contact-form-card {
+    width: 100%;
+    padding: 12px;
+    border-radius: 14px;
+  }
+
+  .contact-card-title {
+    font-size: 1rem;
+    margin-bottom: 14px;
+  }
+
+  #inquiryForm .form-row {
+    grid-template-columns: 1fr;
+    gap: 9px;
+  }
+
+  .form-group {
+    width: 100%;
+    margin-bottom: 9px;
+  }
+
+  #referenceDiv {
+    width: 100%;
+    margin: 0 0 9px 0;
+    padding: 0;
+  }
+
+  #description {
+    width: 100%;
+    margin: 0;
+  }
+
+  #inquiryForm input,
+  #inquiryForm textarea,
+  #inquiryForm select {
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
+  }
+
+  #inquiryForm textarea {
+    min-height: 105px;
+  }
+
+  .btn-inquiry-submit {
+    width: 100%;
+    min-height: 44px;
+    padding: 11px 6px;
+    font-size: 11px;
+  }
+
+  .email-box {
+    width: 100%;
+    padding: 9px;
+    gap: 8px;
+  }
+
+  .email-address {
+    font-size: 10px;
+    overflow-wrap: anywhere;
+    word-break: break-word;
+  }
+
+}
+
+
+/* ==========================================================================
+   LANDSCAPE MOBILE DEVICES
+   ========================================================================== */
+
+@media (max-width: 768px) and (orientation: landscape) {
+
+  #contact {
+    padding-top: 95px;
+    scroll-margin-top: 95px;
+  }
+
+  .contact-container {
+    gap: 24px;
+  }
+
+  .contact-form-card {
+    padding: 18px;
+  }
+
+}
+
+
+/* ==========================================================================
+   TOUCH DEVICES
+   ========================================================================== */
+
+@media (hover: none) and (pointer: coarse) {
+
+  .btn-inquiry-submit {
+    min-height: 48px;
+  }
+
+  #inquiryForm input,
+  #inquiryForm textarea,
+  #inquiryForm select {
+    min-height: 44px;
+  }
+
+  #inquiryForm textarea {
+    min-height: 120px;
+  }
+
+}
+
+
+/* ==========================================================================
+   EXTRA-WIDE SCREENS
+   ========================================================================== */
+
+@media (min-width: 1600px) {
+
+  .contact-container {
+    gap: 60px;
+  }
+
+  .contact-form-card {
+    padding: 40px;
+  }
+
+}
+
+
+/* ==========================================================================
+   FINAL CONTACT OVERFLOW PROTECTION
+   ========================================================================== */
+
+@media (max-width: 768px) {
+
+  .contact-container,
+  .contact-info,
+  .contact-form-card,
+  #inquiryForm,
+  #inquiryForm .form-row,
+  #referenceDiv,
+  #description {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+  }
+
+  #inquiryForm * {
+    max-width: 100%;
+  }
+
+  #inquiryForm input,
+  #inquiryForm textarea,
+  #inquiryForm select,
+  .btn-inquiry-submit {
+    box-sizing: border-box;
+  }
+
+}
