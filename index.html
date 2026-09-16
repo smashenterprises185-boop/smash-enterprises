@@ -387,7 +387,7 @@
       <!-- Item 5: T-Shirt LANDING PAGE -->
       <div class="portfolio-card" data-category="fullstack">
         <div class="card-media">
-          <img src="t-shirt landing.page.png" alt="Donuts Handcrafted Artisan Shop" class="portfolio-img-cover" />
+          <img src="landing.page.png" alt="Donuts Handcrafted Artisan Shop" class="portfolio-img-cover" />
           <a href="https://az-knitwear.vercel.app/" target="_blank" rel="noopener noreferrer" class="overlay-btn">
             LIVE DEMO ↗
           </a>
@@ -673,7 +673,35 @@
 <script>
 document.addEventListener('DOMContentLoaded', () => {
 
-  // --- 1. Modern SVG Theme Toggle (Dark / Light Mode) ---
+  // --- 1. Bi-Directional Scroll Reveal Animation (Infinite Re-trigger) ---
+const scrollTargets = document.querySelectorAll(
+  'section, .hero-section > *, .navbar, .service-card, .portfolio-card, .process-step, .about-card, .about-content, .footer-col, .footer-bottom, form, .section-title, .section-tag'
+);
+
+scrollTargets.forEach(el => el.classList.add('reveal-left'));
+
+const observerOptions = {
+  root: null,
+  rootMargin: '0px 0px -40px 0px',
+  threshold: 0.1,
+};
+
+const scrollObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      // Element enters screen -> Slide in
+      entry.target.classList.add('in-view');
+    } else {
+      // Element leaves screen -> Reset so it can animate again when scrolling back
+      entry.target.classList.remove('in-view');
+    }
+  });
+}, observerOptions);
+
+scrollTargets.forEach(target => scrollObserver.observe(target));
+
+
+  // --- 2. Modern SVG Theme Toggle (Dark / Light Mode) ---
   const themeToggle = document.getElementById('themeToggle');
   let isDark = true;
 
@@ -725,7 +753,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
 
-  // --- 2. Active Navigation Link Switching on Scroll (Scrollspy) ---
+  // --- 3. Active Navigation Link Switching on Scroll (Scrollspy) ---
   const sections = document.querySelectorAll('section[id]');
   const navLinks = document.querySelectorAll('.nav-link');
 
@@ -759,7 +787,7 @@ document.addEventListener('DOMContentLoaded', () => {
   onScroll();
 
 
-  // --- 3. Smooth Offset Scrolling for Nav Links ---
+  // --- 4. Smooth Offset Scrolling for Nav Links ---
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
       const targetId = this.getAttribute('href');
@@ -781,7 +809,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
 
-  // --- 4. Mobile Menu Drawer Controller ---
+  // --- 5. Mobile Menu Drawer Controller ---
   const mobileMenuToggle = document.getElementById('mobileMenuToggle');
   const navLinksContainer = document.getElementById('navLinks');
 
@@ -799,7 +827,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
 
-  // --- 5. Order Dispatcher Switching (Blueprint Form vs Fiverr) ---
+  // --- 6. Order Dispatcher Switching (Blueprint Form vs Fiverr) ---
   const btnOption1 = document.getElementById('btnOption1');
   const btnOption2 = document.getElementById('btnOption2');
   const blueprintPanel = document.getElementById('blueprintPanel');
@@ -822,7 +850,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
 
-  // --- 6. Live API Form Submission Handlers ---
+  // --- 7. Live API Form Submission Handlers ---
   const API_BASE_URL = '/api';
 
   // Inquiry Form

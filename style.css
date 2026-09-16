@@ -17,6 +17,23 @@
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
+/* ==========================================================================
+   REREPEATING SCROLL REVEAL ANIMATIONS (1s DURATION)
+   ========================================================================== */
+
+.reveal-left {
+  opacity: 0;
+  transform: translateX(-60px);
+  /* Duration: 1s | Delay: 0s */
+  transition: transform 1.5s cubic-bezier(0.16, 1, 0.3, 1) 0s,
+  opacity 1s cubic-bezier(0.16, 1, 0.3, 1) 0s;
+  will-change: transform, opacity;
+}
+
+.reveal-left.in-view {
+  opacity: 1;
+  transform: translateX(0);
+}
 
 html {
   scroll-behavior: smooth;
@@ -240,8 +257,18 @@ a { color: inherit; text-decoration: none; }
   font-size: clamp(10.5px, 2.5vw, 12px); font-weight: 600;
   color: var(--accent-gold); margin-bottom: 24px;
   box-shadow: 0 0 15px rgba(212, 163, 66, 0.08);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3),
+  0 0 35px rgba(212, 163, 66, 1);
 }
-.badge-dot { width: 7px; height: 7px; background: var(--accent-gold); border-radius: 50%; flex-shrink: 0; }
+
+.badge-dot { 
+  width: 7px; 
+  height: 7px; 
+  background: var(--accent-gold); 
+  border-radius: 50%; 
+  flex-shrink: 0;
+}
+
 .hero-title { font-size: clamp(2.1rem, 6.2vw, 4.4rem); line-height: 1.12; font-weight: 900; letter-spacing: -1px; margin-bottom: 20px; }
 .hero-description { max-width: 680px; color: var(--text-muted); font-size: clamp(14px, 2.8vw, 16px); line-height: 1.7; margin-bottom: 34px; }
 .hero-cta { display: flex; gap: 14px; align-items: center; justify-content: center; flex-wrap: wrap; width: 100%; }
@@ -261,34 +288,105 @@ a { color: inherit; text-decoration: none; }
 .btn-secondary-pill:hover { border-color: rgba(255, 255, 255, 0.3); background: rgba(255, 255, 255, 0.05); transform: translateY(-2px); }
 
 /* ==========================================================================
-   5. ABOUT SECTION
+   5. ABOUT SECTION (WITH AMBIENT BACKGROUND GOLD GLOW)
    ========================================================================== */
 
-  .section-tag {
-  font-size:large;
-  margin-left: 10px;
-  /* margin-bottom:-1px; */
-  }
+/* Outer Section Container for positioning the background glow */
+#about,
+.about-section {
+  position: relative;
+  z-index: 1;
+}
 
-  .section-title {
+/* Soft Radial Golden Glow behind the entire About section */
+#about::before,
+.about-section::before {
+  content: "";
+  position: absolute;
+  top: 40%;
+  left: 30%; /* Positioned behind the left about-card area */
+  transform: translate(-50%, -50%);
+  width: 550px;
+  height: 350px;
+  background: radial-gradient(
+    circle,
+    rgba(212, 163, 66, 0.18) 0%,
+    rgba(212, 163, 66, 0.05) 55%,
+    transparent 80%
+  );
+  filter: blur(70px);
+  pointer-events: none;
+  z-index: -1;
+}
+
+.section-tag {
+  font-size: large;
+  margin-left: 10px;
+}
+
+.section-title {
   font-size: 35px;
   margin-left: 10px;
-  /* margin-bottom:-30px; */
-  }
+}
 
- .about-container {
+.about-container {
   display: grid;
   grid-template-columns: 1fr 1.4fr;
   gap: clamp(24px, 4vw, 48px);
   align-items: start;
 }
 
+/* --- About Card with Dual Rotating Border --- */
 .about-card {
   background: var(--card-bg);
-  border: 1px solid var(--card-border);
   border-radius: 20px;
   padding: clamp(24px, 4vw, 40px);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  /* Enhanced box-shadow with ambient gold accent tint */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3),
+  0 0 35px rgba(212, 163, 66, 1);
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+.about-card:hover {
+  transform: translateY(-6px);
+}
+
+/* 1. Dual Beam Rotating Layer (Top-Right & Bottom-Left) */
+.about-card::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: conic-gradient(
+    from 0deg,
+    transparent 0%,
+    var(--accent-gold, #d4a342) 20%,
+    transparent 25%,
+    transparent 50%,
+    var(--accent-gold, #d4a342) 70%,
+    transparent 75%
+  );
+  animation: rotateDual 3s linear infinite;
+  z-index: -2;
+}
+
+/* 2. Inner Dark Card Mask */
+.about-card::after {
+  content: "";
+  position: absolute;
+  inset: 1.5px; /* Border thickness */
+  border-radius: 18.5px;
+  background: var(--card-bg, #0b0b0e);
+  z-index: -1;
+}
+
+/* Ensure inner text and rows remain above the rotating background */
+.about-card > * {
+  position: relative;
+  z-index: 2;
 }
 
 .about-card-title {
@@ -353,24 +451,91 @@ a { color: inherit; text-decoration: none; }
   flex-shrink: 0;
 }
 
+@keyframes rotateDual {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
 /* ==========================================================================
-   6. SERVICES SECTION
+   6. SERVICES SECTION (WITH DUAL ANIMATED ROTATING BORDER)
    ========================================================================== */
 .grid { display: grid; }
 .grid-3 { grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); }
 .gap-lg { gap: clamp(16px, 2.5vw, 24px); }
-.service-card {
-  background: var(--card-bg); border: 1px solid var(--card-border);
-  border-radius: 18px; padding: clamp(22px, 3vw, 32px);
-  display: flex; flex-direction: column;
-  transition: transform 0.25s ease, border-color 0.25s ease;
+
+/* Slow down reveal animation specifically for Services */
+#services .service-card,
+#services .reveal-left,
+.service-card.reveal-left {
+  transition-duration: 1.2s !important;
+  animation-duration: 1.2s !important;
+  transition-timing-function: cubic-bezier(0.25, 1, 0.5, 1) !important;
 }
-.service-card:hover { transform: translateY(-3px); border-color: var(--card-hover-border); }
-.service-card.featured {
-  border-color: var(--accent-gold);
+
+.service-card {
+  background: var(--card-bg);
+  border-radius: 18px;
+  padding: clamp(22px, 3vw, 32px);
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.25s ease, border-color 0.25s ease;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3),
+  0 0 35px rgba(212, 163, 66, 0.25);
+}
+
+.service-card:hover { 
+  transform: translateY(-3px); 
+}
+
+/* 1. Dual Rotating Conic Gradient Beams (Top-Right & Bottom-Left) */
+.service-card::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: conic-gradient(
+    from 0deg,
+    transparent 0%,
+    var(--accent-gold, #d4a342) 20%,
+    transparent 25%,
+    transparent 50%,
+    var(--accent-gold, #d4a342) 70%,
+    transparent 75%
+  );
+  animation: rotateDual 3s linear infinite;
+  z-index: -2;
+}
+
+/* 2. Inner Dark Mask (Leaves 1.5px space for border) */
+.service-card::after {
+  content: "";
+  position: absolute;
+  inset: 1.5px;
+  border-radius: 16.5px;
+  background: var(--card-bg, #0b0b0e);
+  z-index: -1;
+  transition: background 0.25s ease;
+}
+
+/* Featured card variation inside mask */
+.service-card.featured::after {
   background: linear-gradient(180deg, #111115 0%, #0c0c0e 100%);
+}
+
+.service-card.featured {
   box-shadow: 0 0 25px rgba(212, 163, 66, 0.12);
 }
+
+/* Elevate children above background layers */
+.service-card > * {
+  position: relative;
+  z-index: 2;
+}
+
 .icon-box {
   width: 42px; height: 42px;
   background: #141418; border: 1px solid rgba(255, 255, 255, 0.06);
@@ -383,6 +548,10 @@ a { color: inherit; text-decoration: none; }
 .feature-list li { margin-bottom: 8px; display: flex; align-items: center; gap: 8px; }
 .check-icon { color: var(--accent-green); font-weight: bold; }
 
+@keyframes rotateDual {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
 /* ==========================================================================
    7. HOW IT WORKS TIMELINE
    ========================================================================== */
@@ -418,16 +587,26 @@ a { color: inherit; text-decoration: none; }
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
   gap: clamp(18px, 3vw, 28px);
 }
+
 .portfolio-card {
   background: var(--card-bg);
   border: 1px solid var(--card-border);
   border-radius: 20px;
   overflow: hidden;
-  transition: transform 0.25s ease, border-color 0.25s ease;
+  /* Updated duration to 1.2s for a slower, smoother scroll reveal entrance */
+  transition: transform 1.5s cubic-bezier(0.16, 1, 0.3, 1), 
+  opacity 1.2s cubic-bezier(0.16, 1, 0.3, 1), 
+  border-color 0.25s ease;
   display: flex;
   flex-direction: column;
 }
-.portfolio-card:hover { transform: translateY(-3px); border-color: rgba(255, 255, 255, 0.18); }
+
+.portfolio-card:hover {
+  transform: translateY(-3px);
+  border-color: rgba(255, 255, 255, 0.18);
+  /* Faster response time when hovering over the card */
+  transition: transform 0.25s ease, border-color 0.25s ease;
+}
 
 /* --- Card Media (donut website image area) --- */
 .card-media {
@@ -439,19 +618,9 @@ a { color: inherit; text-decoration: none; }
   position: relative;
   overflow: hidden;
 }
-/* --- Card Media (milkshake website image area) --- */
-.card-media {
-  height: clamp(200px, 25vw, 260px);
-  background: #14141a;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  overflow: hidden;
-}
 
 /* ----------------------------------------------------------------------------------------------------------------
-                                     Live image card (Donut website card)
+   Live image card (Donut website card)
 ---------------------------------------------------------------------------------------------------------------- */
 
 .portfolio-img-cover {
@@ -462,7 +631,10 @@ a { color: inherit; text-decoration: none; }
   display: block;
   transition: transform 0.35s ease;
 }
-.portfolio-card:hover .portfolio-img-cover { transform: scale(1.04); }
+.portfolio-card:hover
+.portfolio-img-cover {
+  transform: scale(1.04);
+}
 
 /* --- COMING SOON card media backgrounds (clean gradient, no mock UI) --- */
 .coming-soon-media {
@@ -588,6 +760,34 @@ a { color: inherit; text-decoration: none; }
 /* ==========================================================================
    9. PLACE ORDER SECTION & DISPATCHER PANELS
    ========================================================================== */
+
+/* Outer Section Container (Provides ambient background gold light) */
+#order,
+.place-order-section {
+  position: relative;
+  z-index: 1;
+}
+
+#order::before,
+.place-order-section::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 600px;
+  height: 400px;
+  background: radial-gradient(
+    circle,
+    rgba(212, 163, 66, 0.15) 0%,
+    rgba(212, 163, 66, 0.04) 55%,
+    transparent 80%
+  );
+  filter: blur(80px);
+  pointer-events: none;
+  z-index: -1;
+}
+
 .dispatcher-toggle-container {
   display: flex;
   justify-content: center;
@@ -613,21 +813,30 @@ a { color: inherit; text-decoration: none; }
   color: #fff;
   box-shadow: 0 0 15px rgba(29, 191, 115, 0.15);
 }
+
+/* Updated Order Card Wrapper with the requested box-shadow under-glow */
 .order-card-wrapper {
-  background: var(--card-bg); border: 1px solid var(--card-border);
-  border-radius: 20px; padding: clamp(20px, 4vw, 36px);
-  max-width: 900px; margin: 0 auto;
+  background: var(--card-bg); 
+  border: 1px solid var(--card-border);
+  border-radius: 20px; 
+  padding: clamp(20px, 4vw, 36px);
+  max-width: 900px; 
+  margin: 0 auto;
+  position: relative;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3),
+              0 0 35px rgba(212, 163, 66, 1);
 }
+
 .blueprint-instruction-box {
   background: #14110b; border: 1px solid #3d2f16;
   border-radius: 12px; padding: 16px;
   font-size: 13px; color: #d1c2a5; line-height: 1.6;
 }
+
 .instruction-header { display: flex; align-items: center; gap: 8px; color: var(--accent-gold); margin-bottom: 8px; }
 
 .form-group {
   margin-bottom: 16px;
-  text-area:10px;
 }
 
 .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
@@ -717,10 +926,38 @@ select option { background-color: #0b0b0e; color: #ffffff; padding: 10px; }
   font-size: 11px;
   line-height: 1.4;
 }
-
 /* ==========================================================================
-   10. CONTACT SECTION
+   10. CONTACT SECTION (WITH AMBIENT BACKGROUND GOLD GLOW)
    ========================================================================== */
+
+/* Outer Section Container for positioning the ambient background light */
+#contact,
+.contact-section {
+  position: relative;
+  z-index: 1;
+}
+
+/* Soft Radial Golden Glow behind the Contact Section */
+#contact::before,
+.contact-section::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 600px;
+  height: 400px;
+  background: radial-gradient(
+    circle,
+    rgba(212, 163, 66, 0.15) 0%,
+    rgba(212, 163, 66, 0.04) 55%,
+    transparent 80%
+  );
+  filter: blur(80px);
+  pointer-events: none;
+  z-index: -1;
+}
+
 .contact-container {
   display: grid;
   grid-template-columns: 1fr 1.3fr;
@@ -759,48 +996,61 @@ select option { background-color: #0b0b0e; color: #ffffff; padding: 10px; }
   color: var(--accent-gold);
   flex-shrink: 0;
 }
+
 .email-label {
   display: block;
   font-family: var(--font-mono);
   font-size: 11px;
   color: var(--text-muted);
- }
+}
+
 .email-address {
   color: var(--accent-gold);
   font-weight: 700;
   font-size: clamp(12px, 2.8vw, 14px);
   word-break: break-all;
- }
+}
+
+/* Contact Form Card with Gold Ambient Drop-Glow */
 .contact-form-card {
   background: var(--card-bg);
   border: 1px solid var(--card-border);
   padding: clamp(22px, 4vw, 36px);
   border-radius: 20px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
- }
+  position: relative;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3),
+  0 0 35px rgba(212, 163, 66, 1);
+}
+
 .contact-card-title {
   font-size: 1.35rem;
   font-weight: 700;
   margin-bottom: 20px;
   color: #ffffff;
 }
+
 #referenceDiv {
-  margin-left:295px;
-  margin-bottom:30px;
-  margin-top:-80px;
+  margin-left: 295px;
+  margin-bottom: 30px;
+  margin-top: -80px;
 }
+
 #firstName {
-  height:40px;
+  height: 40px;
 }
+
 #lastName {
-  height:40px;
+  height: 40px;
 }
+
 #email {
-  height:40px;
+  height: 40px;
 }
-#referenceName{
-  height:40px;
+
+#referenceName {
+  height: 40px;
 }
+
 .btn-inquiry-submit {
   width: 100%;
   background: linear-gradient(135deg, #dfa837 0%, #b88022 100%);
@@ -820,13 +1070,13 @@ select option { background-color: #0b0b0e; color: #ffffff; padding: 10px; }
   transition: all 0.25s ease;
   margin-top: 8px;
   min-height: 48px;
- }
+}
+
 .btn-inquiry-submit:hover {
   background: linear-gradient(135deg, #e5ab3f 0%, #c48b29 100%);
   transform: translateY(-1px);
-  box-shadow: 0 4px 18px rgba(212, 163, 66, 0.35);
+  box-shadow:rgba(212, 163, 66, 2);
 }
-
 /* ==========================================================================
    11. SITE FOOTER
    ========================================================================== */
