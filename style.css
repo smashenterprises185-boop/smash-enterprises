@@ -814,17 +814,56 @@ a { color: inherit; text-decoration: none; }
   box-shadow: 0 0 15px rgba(29, 191, 115, 0.15);
 }
 
-/* Updated Order Card Wrapper with the requested box-shadow under-glow */
+/* Updated Order Card Wrapper with Rotating Border */
 .order-card-wrapper {
   background: var(--card-bg); 
-  border: 1px solid var(--card-border);
   border-radius: 20px; 
   padding: clamp(20px, 4vw, 36px);
   max-width: 900px; 
   margin: 0 auto;
   position: relative;
+  overflow: hidden;
+  z-index: 1;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3),
-              0 0 35px rgba(212, 163, 66, 1);
+              0 0 35px rgba(212, 163, 66, 0.25);
+}
+
+/* Rotating Gradient Beam for Order Card */
+.order-card-wrapper::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: conic-gradient(
+    from 0deg,
+    transparent 0%,
+    var(--accent-gold, #d4a342) 20%,
+    transparent 25%,
+    transparent 50%,
+    var(--accent-gold, #d4a342) 70%,
+    transparent 75%
+  );
+  animation: rotateDual 3s linear infinite;
+  z-index: -2;
+}
+
+/* Inner Dark Mask for Order Card */
+.order-card-wrapper::after {
+  content: "";
+  position: absolute;
+  inset: 1.5px;
+  border-radius: 18.5px;
+  background: var(--card-bg, #0b0b0e);
+  z-index: -1;
+  transition: background 0.25s ease;
+}
+
+/* Ensure inner elements sit above pseudo-elements */
+.order-card-wrapper > * {
+  position: relative;
+  z-index: 2;
 }
 
 .blueprint-instruction-box {
@@ -926,6 +965,7 @@ select option { background-color: #0b0b0e; color: #ffffff; padding: 10px; }
   font-size: 11px;
   line-height: 1.4;
 }
+
 /* ==========================================================================
    10. CONTACT SECTION (WITH AMBIENT BACKGROUND GOLD GLOW)
    ========================================================================== */
@@ -1011,15 +1051,54 @@ select option { background-color: #0b0b0e; color: #ffffff; padding: 10px; }
   word-break: break-all;
 }
 
-/* Contact Form Card with Gold Ambient Drop-Glow */
+/* Contact Form Card with Rotating Border */
 .contact-form-card {
   background: var(--card-bg);
-  border: 1px solid var(--card-border);
   padding: clamp(22px, 4vw, 36px);
   border-radius: 20px;
   position: relative;
+  overflow: hidden;
+  z-index: 1;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3),
-  0 0 35px rgba(212, 163, 66, 1);
+              0 0 35px rgba(212, 163, 66, 0.25);
+}
+
+/* Rotating Gradient Beam for Contact Form Card */
+.contact-form-card::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: conic-gradient(
+    from 0deg,
+    transparent 0%,
+    var(--accent-gold, #d4a342) 20%,
+    transparent 25%,
+    transparent 50%,
+    var(--accent-gold, #d4a342) 70%,
+    transparent 75%
+  );
+  animation: rotateDual 3s linear infinite;
+  z-index: -2;
+}
+
+/* Inner Dark Mask for Contact Form Card */
+.contact-form-card::after {
+  content: "";
+  position: absolute;
+  inset: 1.5px;
+  border-radius: 18.5px;
+  background: var(--card-bg, #0b0b0e);
+  z-index: -1;
+  transition: background 0.25s ease;
+}
+
+/* Ensure inner elements sit above pseudo-elements */
+.contact-form-card > * {
+  position: relative;
+  z-index: 2;
 }
 
 .contact-card-title {
@@ -1075,7 +1154,7 @@ select option { background-color: #0b0b0e; color: #ffffff; padding: 10px; }
 .btn-inquiry-submit:hover {
   background: linear-gradient(135deg, #e5ab3f 0%, #c48b29 100%);
   transform: translateY(-1px);
-  box-shadow:rgba(212, 163, 66, 2);
+  box-shadow: 0 4px 18px rgba(212, 163, 66, 0.35);
 }
 /* ==========================================================================
    11. SITE FOOTER
