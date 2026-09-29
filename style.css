@@ -836,7 +836,7 @@ a { color: inherit; text-decoration: none; }
   left: -50%;
   width: 200%;
   height: 200%;
-  background: conic-gradient(
+  /* background: conic-gradient(
     from 0deg,
     transparent 0%,
     var(--accent-gold, #d4a342) 20%,
@@ -846,7 +846,7 @@ a { color: inherit; text-decoration: none; }
     transparent 75%
   );
   animation: rotateDual 3s linear infinite;
-  z-index: -2;
+  z-index: -2; */
 }
 
 /* Inner Dark Mask for Order Card */
@@ -1071,7 +1071,7 @@ select option { background-color: #0b0b0e; color: #ffffff; padding: 10px; }
   left: -50%;
   width: 200%;
   height: 200%;
-  background: conic-gradient(
+  /* background: conic-gradient(
     from 0deg,
     transparent 0%,
     var(--accent-gold, #d4a342) 20%,
@@ -1081,7 +1081,7 @@ select option { background-color: #0b0b0e; color: #ffffff; padding: 10px; }
     transparent 75%
   );
   animation: rotateDual 3s linear infinite;
-  z-index: -2;
+  z-index: -2; */
 }
 
 /* Inner Dark Mask for Contact Form Card */
